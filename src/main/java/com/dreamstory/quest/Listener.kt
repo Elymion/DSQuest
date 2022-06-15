@@ -1,6 +1,7 @@
 package com.dreamstory.quest
 
 import io.lumine.mythic.bukkit.events.MythicMobInteractEvent
+import net.citizensnpcs.api.event.NPCClickEvent
 import org.betonquest.betonquest.api.PlayerConversationEndEvent
 import org.betonquest.betonquest.api.PlayerConversationStartEvent
 import org.betonquest.betonquest.conversation.Conversation
@@ -42,13 +43,18 @@ object Listener:Listener {
     }
 
     @EventHandler
+    fun onClickNPC(event: NPCClickEvent) {
+        val player = event.clicker
+        if (!player.isOnGround) return
+        event.npc.name
+    }
+
+    @EventHandler
     fun onInteractMM(event: MythicMobInteractEvent){
         val player = event.player
-        if(player.isOnGround) {
-            return
-        }
+        if (!player.isOnGround) return
         main.server.broadcastMessage("name: ${event.activeMob.displayName} type: ${event.activeMob.mobType}")
         val playerID = PlayerConverter.getID(player)
-        Conversation(playerID,conversationMap[event.activeMob.mobType]?: return,player.location)
+        Conversation(playerID,mythicMobMap[event.activeMob.mobType]?: return,player.location)
     }
 }

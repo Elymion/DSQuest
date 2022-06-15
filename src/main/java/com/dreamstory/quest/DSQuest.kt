@@ -1,5 +1,6 @@
 package com.dreamstory.quest
 
+import com.comphenix.protocol.ProtocolLibrary
 import com.dreamstory.quest.conditions.IsOnGround
 import com.dreamstory.quest.events.IntroEvent
 import com.dreamstory.quest.events.OpenGuiEvent
@@ -14,6 +15,7 @@ class DSQuest : JavaPlugin() {
     override fun onEnable() {
         main = this
         betonQuest = BetonQuest.getInstance()
+        protocolManager = ProtocolLibrary.getProtocolManager()
         main.server.pluginManager.registerEvents(Listener, main)
         getCommand("questTest")?.setExecutor(Command())
         betonQuest.registerConditions("isOnGround", IsOnGround::class.java)

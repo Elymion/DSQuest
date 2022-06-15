@@ -15,9 +15,13 @@ import org.bukkit.plugin.java.JavaPlugin
 internal lateinit var main: JavaPlugin
 internal lateinit var betonQuest: BetonQuest
 internal lateinit var protocolManager: ProtocolManager
-val conversationMap = hashMapOf(
+val npcMap = hashMapOf(
+    "광부" to "Tutorial.miner",
+)
+val mythicMobMap = hashMapOf(
     "blacksmithNPCHITBOX" to "Tutorial.monolog",
-    "cauldron" to "Crafting.cooking"
+    "cauldron" to "Crafting.cooking",
+    "wizardNPC" to "Crafting.cooking"
 )
 fun tutorial(player: Player) {
     player.teleport(Location(main.server.worlds.first(),-63.5,54.0,-601.5,13f,13f))

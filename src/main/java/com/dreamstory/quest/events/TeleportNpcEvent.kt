@@ -1,7 +1,6 @@
 package com.dreamstory.quest.events
 
 import net.citizensnpcs.api.CitizensAPI
-import org.betonquest.betonquest.BetonQuest
 import org.betonquest.betonquest.Instruction
 import org.betonquest.betonquest.api.QuestEvent
 import org.bukkit.event.player.PlayerTeleportEvent
