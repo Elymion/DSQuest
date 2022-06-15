@@ -1,7 +1,7 @@
 package com.dreamstory.quest
 
 import com.comphenix.protocol.PacketType
-import com.dreamstory.library.protocolManager
+import com.comphenix.protocol.ProtocolManager
 import net.minecraft.network.protocol.game.PacketPlayOutEntityHeadRotation
 import org.betonquest.betonquest.BetonQuest
 import org.betonquest.betonquest.id.EventID
@@ -14,6 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin
 
 internal lateinit var main: JavaPlugin
 internal lateinit var betonQuest: BetonQuest
+internal lateinit var protocolManager: ProtocolManager
 val conversationMap = hashMapOf(
     "blacksmithNPCHITBOX" to "Tutorial.monolog",
     "cauldron" to "Crafting.cooking"

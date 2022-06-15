@@ -43,8 +43,12 @@ object Listener:Listener {
 
     @EventHandler
     fun onInteractMM(event: MythicMobInteractEvent){
+        val player = event.player
+        if(player.isOnGround) {
+            return
+        }
         main.server.broadcastMessage("name: ${event.activeMob.displayName} type: ${event.activeMob.mobType}")
-        val playerID = PlayerConverter.getID(event.player)
-        Conversation(playerID,conversationMap[event.activeMob.mobType]?: return,event.player.location)
+        val playerID = PlayerConverter.getID(player)
+        Conversation(playerID,conversationMap[event.activeMob.mobType]?: return,player.location)
     }
 }
