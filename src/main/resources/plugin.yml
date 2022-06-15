@@ -1,0 +1,11 @@
+name: DSQuest
+version: ${project.version}
+main: com.dreamstory.quest.DSQuest
+api-version: 1.18
+depend:
+  - DSLibrary
+  - DSAbility
+  - BetonQuest
+commands:
+  questtest:
+    description: quest
